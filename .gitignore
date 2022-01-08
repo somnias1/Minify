@@ -1,2 +1,2 @@
 Minify/.env
-env-Minify/
+*.sqlite3
