@@ -1,2 +1,5 @@
 Minify/.env
 *.sqlite3
+Minify/__pycache__/
+API/models/__pycache__/
+
