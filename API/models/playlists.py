@@ -16,15 +16,16 @@ class PlaylistSong(models.Model):
 
 class Playlist(models.Model):
     playlist_name = models.CharField(max_length=60)
+    playlist_image = models.ImageField(null=True, blank=True, upload_to="playlists/")
     description = models.CharField(max_length=255)
-    saved_song = models.ManyToManyField(
-        "Song", through="PlaylistSong"
+    saved_song = models.ManyToManyField("Song", through="PlaylistSong", blank=True)
+    user = models.ForeignKey(
+        "User", related_name="%(class)s_user", on_delete=models.CASCADE
     )
-    user = models.ForeignKey("User", related_name="%(class)s_user", on_delete =models.CASCADE)
 
     class Meta:
         verbose_name = "Playlist"
-        verbose_name = "Playlists"
+        verbose_name_plural = "Playlists"
 
     def __str__(self):
         return f"{self.playlist_name}"

@@ -6,4 +6,4 @@ from .memberships import Membership
 from .playlists import Playlist
 from .queues import Queue
 from .songs import Song
-from .users import User
+from .users import User, UserFollowing

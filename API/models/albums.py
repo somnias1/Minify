@@ -17,7 +17,7 @@ class AlbumGenre(models.Model):
 class Album(models.Model):
     album_name = models.CharField(max_length=255, null=False)
     release_date = models.DateField(null=False)
-    album_image = models.ImageField(null=True, upload_to="albums/")
+    album_image = models.ImageField(null=True, blank=True, upload_to="albums/")
     genre = models.ManyToManyField("Genre", through="AlbumGenre")
     artist = models.ForeignKey(
         "Artist", related_name="%(class)s_artist", on_delete=models.CASCADE

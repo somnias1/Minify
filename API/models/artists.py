@@ -5,7 +5,7 @@ from .countries import Country
 
 class Artist(models.Model):
     artist_name = models.CharField(max_length=255, null=False)
-    artist_image = models.ImageField(null=True, upload_to="artists/")
+    artist_image = models.ImageField(null=True, blank=True, upload_to="artists/")
     origin = models.ForeignKey(
         "Country", related_name="%(class)s_country", on_delete=models.CASCADE
     )
