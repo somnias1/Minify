@@ -1,1 +1,1 @@
-from .countries import CountryCreationSerliazer, CountryInfoSerializer
+from .countries import CountryCreationSerializer, CountryInfoSerializer
