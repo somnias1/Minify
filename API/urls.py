@@ -6,7 +6,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from .views import CountryViewSet
+
 router = DefaultRouter()
+
+router.register(r"countries", CountryViewSet, basename="countries")
 
 urlpatterns = [
     path("", include(router.urls)),
