@@ -5,7 +5,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.validators import UniqueValidator
 
-from ..models import User
+from ..models import User, Queue, Membership
 
 from datetime import date, timedelta
 
@@ -21,6 +21,8 @@ class UserSerializer(serializers.ModelSerializer):
             "email",
             "signup_date",
             "birth_date",
+            "membership",
+            "queue",
         ]
 
     def get_specific_user(self, validate_data):
@@ -72,5 +74,11 @@ class UserSignUpSerializer(serializers.Serializer):
 
     def create(self, data):
         data.pop("password_confirmation")
-        user = User.objects.create_user(**data, allow_explicit=False)
+        freemium = Membership.objects.get(id=1)
+        queue = Queue.objects.create()
+        user = User.objects.create_user(
+            **data, allow_explicit=False, membership=freemium, queue=queue
+        )
+        queue.user = user
+        queue.save()
         return user
