@@ -6,10 +6,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from .views import CountryViewSet
 from .views import UserViewSet
+
 
 router = DefaultRouter()
 
+router.register(r"countries", CountryViewSet, basename="countries")
 router.register(r"users", UserViewSet, basename="users")
 
 urlpatterns = [
