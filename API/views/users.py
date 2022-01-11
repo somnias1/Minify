@@ -36,8 +36,8 @@ class UserViewSet(viewsets.GenericViewSet):
 
         data = {
             "user": UserSerializer(user).data,
-            "refresh token": token_refresh,
-            "access token": token_access,
+            "refresh": token_refresh,
+            "access": token_access,
         }
 
         # Cambia la última vez que inició sesión
