@@ -3,3 +3,6 @@ Minify/.env
 Minify/__pycache__/
 API/models/__pycache__/
 
+API/__pycache__/urls.cpython-38.pyc
+API/serializers/__pycache__/*
+API/views/__pycache__/*
