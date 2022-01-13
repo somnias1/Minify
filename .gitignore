@@ -1,7 +1,9 @@
+.vscode/
 Minify/.env
 *.sqlite3
 Minify/__pycache__/*
 API/__pycache__/*
+API/migrations/__pycache__/*
 API/models/__pycache__/*
 API/serializers/__pycache__/*
 API/views/__pycache__/*

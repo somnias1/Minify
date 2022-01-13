@@ -6,14 +6,14 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from .views import CountryViewSet
-from .views import UserViewSet
+from .views import ArtistViewSet, CountryViewSet, UserViewSet
 
 
 router = DefaultRouter()
 
 router.register(r"countries", CountryViewSet, basename="countries")
 router.register(r"users", UserViewSet, basename="users")
+router.register(r"artists", ArtistViewSet, basename="artists")
 
 urlpatterns = [
     path("", include(router.urls)),
