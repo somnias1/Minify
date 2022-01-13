@@ -5,5 +5,3 @@ API/models/__pycache__/
 API/__pycache__/
 API/serializers/__pycache__/
 API/views/__pycache__/
-API/serializers/__pycache__/__init__.cpython-38.pyc
-API/serializers/__pycache__/users.cpython-38.pyc
