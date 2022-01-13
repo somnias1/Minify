@@ -13,6 +13,7 @@ class ArtistViewSet(GetSerializerClassMixin, viewsets.ModelViewSet):
     permission_classes = [IsAdminUserOrReadOnly]
     serializer_action_classes = {
         "list": ArtistInfoSerializer,
+        "retrieve": ArtistInfoSerializer,
     }
 
     def get_serializer_context(self):
