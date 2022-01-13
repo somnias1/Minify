@@ -7,4 +7,5 @@ API/migrations/__pycache__/*
 API/models/__pycache__/*
 API/serializers/__pycache__/*
 API/views/__pycache__/*
+API/tests/__pycache__/*
 

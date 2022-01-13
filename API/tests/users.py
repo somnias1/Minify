@@ -70,8 +70,7 @@ class UserTestCase(TestCase):
             },
             format="json",
         )
-        print(response)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         result = json.loads(response.content)
-        self.assertIn("access token", result)
+        self.assertIn("access", result)
