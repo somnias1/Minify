@@ -3,7 +3,7 @@
 ========================
 
 Resource LOGIN
--------------
+--------------
 
     .. http:post:: /API/users/login/
 
@@ -14,7 +14,7 @@ Resource LOGIN
         :username: **(string)** Username previously registered
         :password: **(string)** password used in registration
 
-    * **Example request**
+    * **Sample request**
 
         .. host:: http
 
@@ -26,7 +26,7 @@ Resource LOGIN
                 "password": "minifyuser"
             }
 
-    * **Example response** 
+    * **Sample response** 
 
         .. host:: http
 
@@ -57,8 +57,8 @@ Resource LOGIN
                 ]
             }
 
-Recurso SIGNUP
---------------
+Resource SIGNUP
+---------------
 
     .. http:post:: /API/users/signup/
 
@@ -72,7 +72,7 @@ Recurso SIGNUP
         :birth_date: **(date)** Birth date, format recommended YYYY-MM-DD
         :email: **(email)** Email format required
 
-    * **Example request**
+    * **Sample request**
 
         .. host:: http
 
@@ -87,7 +87,7 @@ Recurso SIGNUP
                 "email": "minify@user1.com"
             }
 
-    * **Example response** 
+    * **Sample response** 
 
         .. host:: http
 
@@ -119,3 +119,88 @@ Recurso SIGNUP
                     "This field must be unique."
                 ]
             }  
+
+
+Resource TOKEN
+--------------
+
+    .. http:post:: /api/token/
+
+    Request token for the user
+
+    * **Required fields**
+
+        :username: **(string)** Username previously registered
+        :password: **(string)** password used in registration
+
+    * **Sample request**
+
+        .. host:: http
+
+            POST /API/token/
+            Content-Type: json
+
+            {
+                "username": "minifyuser1",
+                "password": "minifyuser"
+            }
+
+    * **Sample response** 
+
+        .. host:: http
+
+            HTTP/1.1 200 OK
+            Content-Type: json
+
+            {
+                "refresh": "JWTtype.refresh.token",
+                "access": "JWTtype.access.token"
+            }
+
+Resource REFRESH TOKEN
+----------------------
+
+    .. http:post:: /api/token/refresh/
+
+    Refresh token for the user
+
+    * **Required fields**
+
+        :refresh: **(JWTToken)** JWT refresh token
+
+    * **Sample request**
+
+        .. host:: http
+
+            POST /API/token/refresh/
+            Content-Type: json
+
+            {
+                "refresh": JWTtype.refresh.token
+            }
+
+    * **Sample response** 
+
+        .. host:: http
+
+            HTTP/1.1 200 OK
+            Content-Type: json
+
+            {
+                "access": "JWTtype.access.token"
+            }
+
+            HTTP/1.1 401 UNAUTHORIZED
+            Content-Type: json
+
+            {
+                "detail": "Token is invalid or expired",
+                "code": "token_not_valid"
+            }
+
+
+
+:status 200: Request complete
+:status 201: User created
+:status 400: Invalid values
+:status 401: Authorization Token invalid or expired
