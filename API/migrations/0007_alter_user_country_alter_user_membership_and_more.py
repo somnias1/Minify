@@ -7,23 +7,38 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('API', '0006_alter_user_managers'),
+        ("API", "0006_alter_user_managers"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='country',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='%(class)s_country', to='API.country'),
+            model_name="user",
+            name="country",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="%(class)s_country",
+                to="API.country",
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='membership',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='%(class)s_Membership', to='API.membership'),
+            model_name="user",
+            name="membership",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="%(class)s_Membership",
+                to="API.membership",
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='queue',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_queue', to='API.queue'),
+            model_name="user",
+            name="queue",
+            field=models.OneToOneField(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="user_queue",
+                to="API.queue",
+            ),
         ),
     ]

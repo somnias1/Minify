@@ -8,57 +8,69 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('API', '0007_alter_user_country_alter_user_membership_and_more'),
+        ("API", "0007_alter_user_country_alter_user_membership_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='playlist',
-            options={'verbose_name': 'Playlist', 'verbose_name_plural': 'Playlists'},
+            name="playlist",
+            options={"verbose_name": "Playlist", "verbose_name_plural": "Playlists"},
         ),
         migrations.AddField(
-            model_name='playlist',
-            name='playlist_image',
-            field=models.ImageField(blank=True, null=True, upload_to='playlists/'),
+            model_name="playlist",
+            name="playlist_image",
+            field=models.ImageField(blank=True, null=True, upload_to="playlists/"),
         ),
         migrations.AddField(
-            model_name='queue',
-            name='user',
-            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_queue', to=settings.AUTH_USER_MODEL),
+            model_name="queue",
+            name="user",
+            field=models.OneToOneField(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="user_queue",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='album',
-            name='album_image',
-            field=models.ImageField(blank=True, null=True, upload_to='albums/'),
+            model_name="album",
+            name="album_image",
+            field=models.ImageField(blank=True, null=True, upload_to="albums/"),
         ),
         migrations.AlterField(
-            model_name='artist',
-            name='artist_image',
-            field=models.ImageField(blank=True, null=True, upload_to='artists/'),
+            model_name="artist",
+            name="artist_image",
+            field=models.ImageField(blank=True, null=True, upload_to="artists/"),
         ),
         migrations.AlterField(
-            model_name='country',
-            name='country_image',
-            field=models.ImageField(blank=True, null=True, upload_to='countries/'),
+            model_name="country",
+            name="country_image",
+            field=models.ImageField(blank=True, null=True, upload_to="countries/"),
         ),
         migrations.AlterField(
-            model_name='genre',
-            name='genre_image',
-            field=models.ImageField(blank=True, null=True, upload_to=''),
+            model_name="genre",
+            name="genre_image",
+            field=models.ImageField(blank=True, null=True, upload_to=""),
         ),
         migrations.AlterField(
-            model_name='membership',
-            name='duration',
-            field=models.IntegerField(help_text='In days'),
+            model_name="membership",
+            name="duration",
+            field=models.IntegerField(help_text="In days"),
         ),
         migrations.AlterField(
-            model_name='playlist',
-            name='saved_song',
-            field=models.ManyToManyField(blank=True, through='API.PlaylistSong', to='API.Song'),
+            model_name="playlist",
+            name="saved_song",
+            field=models.ManyToManyField(
+                blank=True, through="API.PlaylistSong", to="API.Song"
+            ),
         ),
         migrations.AlterField(
-            model_name='queue',
-            name='queued_song',
-            field=models.ManyToManyField(blank=True, related_name='queued_song', through='API.QueueOrder', to='API.Song'),
+            model_name="queue",
+            name="queued_song",
+            field=models.ManyToManyField(
+                blank=True,
+                related_name="queued_song",
+                through="API.QueueOrder",
+                to="API.Song",
+            ),
         ),
     ]

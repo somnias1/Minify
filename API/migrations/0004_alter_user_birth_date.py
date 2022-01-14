@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('API', '0003_alter_user_managers_user_date_joined_user_first_name_and_more'),
+        ("API", "0003_alter_user_managers_user_date_joined_user_first_name_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='birth_date',
+            model_name="user",
+            name="birth_date",
             field=models.DateField(null=True),
         ),
     ]
