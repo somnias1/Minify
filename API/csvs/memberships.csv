@@ -1,0 +1,5 @@
+id,cost,membership_name,membership_description,duration
+1,0,Freemium,Free version of the membership,999
+2,500,Basic,Basic version of the membership,30
+3,1000,Premium,Premium version of the membership,30
+4,200,Mini, Mini version of the membership,15
