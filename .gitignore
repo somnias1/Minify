@@ -8,4 +8,5 @@ API/models/__pycache__/*
 API/serializers/__pycache__/*
 API/views/__pycache__/*
 API/tests/__pycache__/*
+API/management/commands/__pycache__/*
 
